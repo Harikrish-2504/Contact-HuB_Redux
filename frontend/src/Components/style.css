@@ -1,0 +1,192 @@
+.form_container {
+  position: absolute;
+  max-width: 585px;
+  width: 100%;
+  background:#1b263b;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 0 auto;
+  /* bottom: 210px; */
+  left: 0;
+  right: 0;
+  color: white;
+  top: 100px;
+}
+
+.form_container header {
+  font-size: 1.2rem;
+
+  font-weight: 600;
+  text-align: center;
+}
+
+.form_container .form {
+  margin-top: 15px;
+}
+
+.form .input-box {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.input-box label {
+
+}
+
+.form :where(.input-box input, .select-box) {
+  position: relative;
+  height: 35px;
+  /* width: 100%; */
+  width: -webkit-fill-available;
+  outline: none;
+  font-size: 1rem;
+  color: #808080;
+  margin-top: 5px;
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0 15px;
+
+}
+
+.input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .column {
+  display: flex;
+  column-gap: 15px;
+}
+
+.form .gender-box {
+  margin-top: 25px;
+}
+
+.form :where(.gender-option, .gender) {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  flex-wrap: wrap;
+}
+
+.form .gender {
+  column-gap: 5px;
+}
+
+.gender input {
+  accent-color: #EE4E34;
+}
+
+.form :where(.gender input, .gender label) {
+  cursor: pointer;
+}
+
+.gender label {
+  color: #000;
+}
+
+.address :where(input, .select-box) {
+  margin-top: 10px;
+}
+
+.input-box select {
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #808080;
+  font-size: 1rem;
+  /* background: #FCEDDA; */
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0 15px;
+
+  margin-top: 5px;
+}
+
+/* .form button {
+  height: 40px;
+  width: 100%;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #EE4E34;
+} */
+
+/* .form button:hover {
+  background: #EE3E34;
+} */
+
+.submit_button {
+  text-align: center;
+  margin-top: 25px;
+  display: flex;
+  justify-content: end;
+  gap: 25px;
+}
+
+.form button {
+  padding: 15px 20px;
+}
+input[type='text']{
+  color: black;
+}
+input[type='email']{
+  color: black;
+}
+input[type='telephone']{
+  color: black;
+}
+.close_icon{
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 22px;
+}
+
+/*delete*/
+
+.delete_contact {
+  background-color: white;
+  position: absolute;
+  top: 258px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+ max-width: 410px;
+  height: 211px;
+  box-shadow: inset 0px 0px 9px 1px rgb(164, 160, 160);
+  border-radius: 20px;
+}
+.delete_button {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
+
+}
+
+.delete_btn{
+  background-color: #ff0000;
+  padding: 10px 20px;
+}
+
+button.close_btn {
+  background-color: transparent;
+  color: black;
+  border: 1px solid;
+}
+
+
+.cancel_btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
