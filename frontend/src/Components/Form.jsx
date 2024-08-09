@@ -4,7 +4,7 @@ import {faXmark} from "@fortawesome/free-solid-svg-icons";
 import {useSelector, useDispatch} from "react-redux";
 import {createContacts, editContact} from "../Redux/ContactSlice";
 
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
 import "./style.css";
 
 const Form = ({formVisible, initialContent}) => {
@@ -38,12 +38,11 @@ const Form = ({formVisible, initialContent}) => {
     if (initialContent) {
       dispatch(editContact({id: initialContent._id, updateData: iscontact}));
       formVisible();
-      toast.success('Updated Succesfull')
-
+      toast.success("Updated Succesfull");
     } else {
       dispatch(createContacts({iscontact}));
       formVisible();
-      toast.success('Contact Created ')
+      toast.success("Contact Created ");
     }
   };
   return (
@@ -60,7 +59,7 @@ const Form = ({formVisible, initialContent}) => {
           <div className="column">
             <div className="input-box">
               <label>Salutation</label>
-              <select name="salutation" value={iscontact.salutation} onChange={handleChange}>
+              <select required name="salutation" value={iscontact.salutation} onChange={handleChange}>
                 <option>select</option>
                 <option>Mr</option>
                 <option>Mrs</option>
@@ -69,7 +68,7 @@ const Form = ({formVisible, initialContent}) => {
             <div className="input-box">
               <label>First Name</label>
               <input
-                required=""
+                required
                 value={iscontact.firstName}
                 onChange={handleChange}
                 placeholder="Enter first name"
@@ -80,7 +79,7 @@ const Form = ({formVisible, initialContent}) => {
             <div className="input-box">
               <label>Last Name</label>
               <input
-                required=""
+                required
                 value={iscontact.lastName}
                 onChange={handleChange}
                 placeholder="Enter last name"
@@ -93,7 +92,7 @@ const Form = ({formVisible, initialContent}) => {
             <div className="input-box">
               <label>Phone Number</label>
               <input
-                required=""
+                required
                 value={iscontact.phone}
                 onChange={handleChange}
                 placeholder="Enter phone number"
@@ -104,7 +103,7 @@ const Form = ({formVisible, initialContent}) => {
             <div className="input-box">
               <label>Email</label>
               <input
-                required=""
+                required
                 value={iscontact.email}
                 onChange={handleChange}
                 placeholder="Enter email"
@@ -117,7 +116,7 @@ const Form = ({formVisible, initialContent}) => {
             <div className="input-box">
               <label>Place</label>
               <input
-                required=""
+                required
                 value={iscontact.place}
                 onChange={handleChange}
                 placeholder="Enter place"

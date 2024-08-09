@@ -44,7 +44,6 @@ export const deleteContact = createAsyncThunk("Deleting contact", async (id, {re
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response ? error.response.data : error.message);
-
   }
 });
 
@@ -58,10 +57,14 @@ const contactSlice = createSlice({
     currentPage: 1,
     pageSize: 5,
     totalContacts: 0,
-    totalPages:0,
+    totalPages: 0,
     searchQuery: "",
   },
-  reducers: {},
+  reducers: {
+    setPagesize: (state, action) => {
+      state.pageSize = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.pending, (state) => {
@@ -72,6 +75,7 @@ const contactSlice = createSlice({
         state.loading = false;
         state.contacts = action.payload.contacts;
         state.totalContacts = action.payload.totalContacts;
+        state.currentPage = action.payload.currentPage;
         state.totalPages = action.payload.totalPages;
         state.status = "Completed..";
       })
@@ -89,10 +93,11 @@ const contactSlice = createSlice({
           state.contacts[index] = action.payload.data;
         }
       })
-      .addCase(deleteContact.fulfilled, (state , action)=>{
-        state.contacts = state.contacts.filter((contact) => contact._id !== action.payload.data._id)
-      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        state.contacts = state.contacts.filter((contact) => contact._id !== action.payload.data._id);
+      });
   },
 });
+export const {setPagesize} = contactSlice.actions;
 
 export default contactSlice.reducer;

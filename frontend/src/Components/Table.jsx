@@ -6,26 +6,20 @@ import {fetchContacts} from "../Redux/ContactSlice";
 import {useDispatch, useSelector} from "react-redux";
 
 const Table = ({formVisible, delFormVisible}) => {
-  const contacts = [
-    {
-      salutation: "MR",
-      firstName: "Hari",
-      lastName: "Krishnan",
-      email: "demo@gmail.com",
-      place: "TVM",
-      phone: "2134234324324",
-    },
-  ];
-
   const dispatch = useDispatch();
   useEffect(() => {
-
     dispatch(fetchContacts());
   }, []);
   const contactslist = useSelector((state) => state.contacts.contacts);
+  const currentPage = useSelector((state) => state.contacts.currentPage);
+  console.log(currentPage);
+
+  const limit = useSelector((state) => state.contacts.pageSize);
   const loading = useSelector((state) => state.contacts.loading);
 
+  let count = (currentPage - 1) * limit;
 
+  let slNumber = count > 9 ? `#${count}` : `#0${count}`;
 
   return (
     <div className="table">
@@ -51,7 +45,7 @@ const Table = ({formVisible, delFormVisible}) => {
             <tbody>
               {contactslist.map((contact, index) => (
                 <tr key={index}>
-                  <td>{index + 1}</td>
+                  <td># {(count = count + 1)}</td>
                   <td>{contact.salutation + "." + contact.firstName + " " + contact.lastName}</td>
                   <td>{contact.email}</td>
                   <td>{contact.phone}</td>

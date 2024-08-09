@@ -14,9 +14,9 @@ const getAllContact = asyncHandler(async (req,res) => {
         const searchQuery = req.query.searchQuery || '';
         const currentPage = req.query.currentPage ? parseInt(req.query.currentPage): 1;
         const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 5;
-        const { contacts, totalContacts, totalPages} = await contactService.getAllContact(searchQuery, currentPage, pageSize);
+        const { contacts, totalContacts, totalPages } = await contactService.getAllContact(searchQuery, currentPage, pageSize);
 
-        res.status(200).json({contacts, totalContacts , totalPages});
+        res.status(200).json({contacts, totalContacts , totalPages ,currentPage});
     } catch (error) {
         res.status(500).json({ error: error.message});
     }

@@ -4,7 +4,7 @@ import Table from "./Table";
 import Form from "./Form";
 import DeleteForm from "./DeleteForm";
 import {useSelector, useDispatch} from "react-redux";
-import {fetchContacts} from "../Redux/ContactSlice";
+import {fetchContacts, setPagesize} from "../Redux/ContactSlice";
 import Footer from "./Footer";
 const MainLayout = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,7 @@ const MainLayout = () => {
   const [page, setpage] = useState(1);
 
   useEffect(() => {
+    dispatch(setPagesize(limit));
     dispatch(fetchContacts({searchQuery: search, pageSize: limit, currentPage: page}));
   }, [search, limit]);
 
@@ -61,7 +62,7 @@ const MainLayout = () => {
         </div>
       )}
       {deleteVisible && <DeleteForm delFormVisible={delFormVisible} contactId={deleteid} />}
-      <Footer  setpage={setpage} limit={limit}  />
+      <Footer setpage={setpage} limit={limit} />
     </div>
   );
 };

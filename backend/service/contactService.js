@@ -33,7 +33,7 @@ const getAllContact = async (searchQuery, currentPage, pageSize) => {
             $project: {
                 contacts: 1,
                 totalContacts: { $ifNull: [{ $arrayElemAt: ['$totalContacts.count', 0] }, 0] },
-                totalPages: { $ceil: { $divide: [{ $arrayElemAt: ['$totalContacts.count', 0] }, pageSize] } }
+                totalPages: { $ceil: { $divide: [{ $arrayElemAt: ['$totalContacts.count', 0] }, pageSize] } },
             }
         }
     ];
